@@ -16,19 +16,27 @@ export ZSH_THEME="funky"
 
 source $ZSH/oh-my-zsh.sh
 
-export CLASSPATH=$CLASSPATH:/Users/ahlatimer/aspectj1.6/lib/aspectjrt.jar
-
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/opt/local/sbin
+export PATH=$HOME/local/node/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/local/include/bin:$HOME/bin
+export DYLD_LIBRARY_PATH=/usr/local/include/vtk-5.6:$DYLD_LIBRARY_PATH
+plugins=(git osx ruby rails textmate)
 
-alias dev='cd ~/devs/webdev/railsdev'
 alias c='clear'
-alias c-jes='cd ~/devs/c-jes'
-alias mockup='cd ~/devs/webdev/mockups\ and\ breakdowns'
-alias rvmgem='rvm 1.8.6,1.8.7,1.9.1 gem'
-alias try='cd /Volumes/Users/andrewlat/Documents/TryPython'
-alias oss='cd ~/devs/webdev/oss'
-alias cont='cd ~/devs/contract'
-alias dl='ruby ~/devs/webdev/railsdev/download.rb'
+alias dev='cd ~/devs/webdev/railsdev'
+alias db='dev; cd dailybooth;'
+# alias oss='cd ~/devs/webdev/oss;'
+alias tunnlr='ssh  -nNt -g -R :11593:0.0.0.0:3000 tunnlr2104@ssh1.tunnlr.com'
+alias web_log='ssh web01.staging tail -f /var/www/current/log/production.log'
+alias api_log='ssh client01.staging tail -f /var/www/current/log/production.log'
+alias ll='ls -lA'
+alias rake='bundle exec rake'
 
-if [[ -s /usr/local/rvm/scripts/rvm ]] ; then source /usr/local/rvm/scripts/rvm ; fi
+function oss() {
+  if [[ $# -eq 1 ]]; then
+    cd `find ~/devs/webdev/oss -name $1 -d 2`
+  else
+    cd ~/devs/webdev/oss
+  fi
+}
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && \. "$HOME/.rvm/scripts/rvm"

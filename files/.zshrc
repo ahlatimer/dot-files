@@ -19,23 +19,48 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 export PATH=$HOME/local/node/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin:/usr/X11/bin:/opt/local/bin:/opt/local/sbin:/usr/local/mysql/bin:/usr/local/include/bin:$HOME/bin
 export DYLD_LIBRARY_PATH=/usr/local/include/vtk-5.6:$DYLD_LIBRARY_PATH
-plugins=(git osx ruby rails textmate)
+plugins=(git git-completion git-flow-completion osx ruby rails textmate)
 
 alias c='clear'
-alias dev='cd ~/devs/webdev/railsdev'
-alias db='dev; cd dailybooth;'
-# alias oss='cd ~/devs/webdev/oss;'
+alias dev='cd ~/devs/web'
 alias tunnlr='ssh  -nNt -g -R :11593:0.0.0.0:3000 tunnlr2104@ssh1.tunnlr.com'
 alias web_log='ssh web01.staging tail -f /var/www/current/log/production.log'
 alias api_log='ssh client01.staging tail -f /var/www/current/log/production.log'
 alias ll='ls -lA'
 alias rake='bundle exec rake'
 
+# git aliases
+alias gst='git status'
+alias gpo='git pull --rebase origin staging'
+alias gpom='git pull origin master'
+alias gpush='git push origin master'
+
+function db() {
+  dev; cd dailybooth;
+  if [[ $# -eq 1 ]]; then
+    cd $1
+  fi
+}
+
+function gcmp() {
+  git checkout staging
+  git merge dev
+  git push origin staging
+  git checkout dev
+}
+
+function gcrp() {
+  git checkout staging
+  git rebase dev
+  git push origin staging
+  git checkout dev
+}
+
 function oss() {
   if [[ $# -eq 1 ]]; then
-    cd `find ~/devs/webdev/oss -name $1 -d 2`
+    cd `find ~/devs/oss -name $1 -d 2`
   else
-    cd ~/devs/webdev/oss
+    cd ~/devs/oss
   fi
 }
 

@@ -21,13 +21,16 @@ export PATH=$HOME/local/node/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/u
 export DYLD_LIBRARY_PATH=/usr/local/include/vtk-5.6:$DYLD_LIBRARY_PATH
 plugins=(git git-completion git-flow-completion osx ruby rails textmate)
 
-alias c='clear'
-alias dev='cd ~/devs/web'
-alias tunnlr='ssh  -nNt -g -R :11593:0.0.0.0:3000 tunnlr2104@ssh1.tunnlr.com'
-alias web_log='ssh web01.staging tail -f /var/www/current/log/production.log'
 alias api_log='ssh client01.staging tail -f /var/www/current/log/production.log'
+alias c='clear'
+alias ccat='pygmentize -f 256 -O full,style=manni '
+alias dev='cd ~/devs/web'
+alias e='mvim .'
+alias ios='cd ~/devs/ios'
 alias ll='ls -lA'
 alias rake='bundle exec rake'
+alias tunnlr='ssh  -nNt -g -R :11593:0.0.0.0:3000 tunnlr2104@ssh1.tunnlr.com'
+alias web_log='ssh web01.staging tail -f /var/www/current/log/production.log'
 
 # git aliases
 alias gst='git status'

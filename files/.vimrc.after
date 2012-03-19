@@ -3,8 +3,10 @@ set guioptions=aAce
 set guifont=Inconsolata:h14
 set listchars=""
 set linespace=2
-" let g:CommandTAcceptSelectionMap = '<C-t>'
-" let g:CommandTAcceptSelectionTabMap = '<CR>'
+nnoremap <Leader>n :NERDTreeMirror<CR>
+nnoremap <C-[> :bprev<CR>
+nnoremap <C-]> :bnext<CR>
+
 if has("gui_macvim")
   set transparency=11
   let macvim_hig_shift_movement = 1

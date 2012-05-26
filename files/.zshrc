@@ -23,15 +23,16 @@ export DYLD_LIBRARY_PATH=/usr/local/include/vtk-5.6:$DYLD_LIBRARY_PATH
 plugins=(git git-completion git-flow-completion osx ruby rails textmate)
 
 alias api_log='ssh client01.staging tail -f /var/www/current/log/production.log'
+alias brake="bundle exec rake"
 alias c='clear'
 alias ccat='pygmentize -f 256 -O full,style=manni '
 alias dev='cd ~/devs/web'
 alias e='mvim .'
 alias ios='cd ~/devs/ios'
 alias ll='ls -lA'
-alias rake='bundle exec rake'
 alias tunnlr='ssh  -nNt -g -R :11593:0.0.0.0:3000 tunnlr2104@ssh1.tunnlr.com'
 alias web_log='ssh web01.staging tail -f /var/www/current/log/production.log'
+alias xcode="open *.xcodeproj"
 
 # git aliases
 alias gst='git status'
@@ -69,3 +70,7 @@ function oss() {
 }
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && \. "$HOME/.rvm/scripts/rvm"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+rvm default

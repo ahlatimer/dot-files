@@ -4,8 +4,8 @@ set guifont=Inconsolata:h14
 set listchars=""
 set linespace=2
 nnoremap <Leader>n :NERDTreeMirror<CR>
-nnoremap <C-[> :bprev<CR>
-nnoremap <C-]> :bnext<CR>
+
+au FileType javascript set softtabstop=4 tabstop=4 shiftwidth=4
 
 if has("gui_macvim")
   set transparency=11

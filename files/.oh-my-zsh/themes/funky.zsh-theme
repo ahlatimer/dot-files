@@ -40,6 +40,6 @@ local ret_status="${blue_op}%?${blue_cp}"
 local hist_no="${blue_op}%D{%m-%d %H:%M}${blue_cp}"
 local git_prompt='$(get_git_prompt_info)'
 PROMPT="┌${path_p}─${hist_no}-${blue_op}${git_prompt}${blue_cp}
-└${blue_op}–${blue_cp} %# "
+└${ret_status} %# "
 local cur_cmd="${blue_op}%_${blue_cp}"
 PROMPT2="${cur_cmd}> "

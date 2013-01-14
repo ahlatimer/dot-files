@@ -4,6 +4,7 @@ set guifont=Inconsolata:h14
 set listchars=""
 set linespace=2
 set ts=2 sts=2 sw=2
+set clipboard=unnamed
 nnoremap <Leader>n :NERDTreeMirror<CR>
 
 " force vim to use 256 colors
@@ -13,6 +14,7 @@ let &t_Co=256
 " set mouse=a
 
 " au FileType handlebars set softtabstop=4 tabstop=4 shiftwidth=4
+au BufRead,BufNewFile *.rabl setf ruby
 
 if has("gui_macvim")
   set transparency=11

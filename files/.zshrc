@@ -30,6 +30,8 @@ alias lr='oss lazy_resource'
 alias gst='git status'
 alias gpo='git fetch; git pull --rebase origin integration'
 alias gci='git checkout integration'
+alias gc='git checkout'
+alias delete_merged='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 function gs() {
   dev; cd getsatisfaction;
@@ -40,10 +42,6 @@ function gs() {
 
 function gcb() {
   git checkout -b $1
-}
-
-function gc() {
-  git checkout $1
 }
 
 function oss() {

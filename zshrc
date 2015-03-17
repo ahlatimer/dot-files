@@ -53,13 +53,6 @@ export TMUX_POWERLINE_SEG_WEATHER_LOCATION="2357536"
 
 export CHEF_USER='ahlatimer'
 
-################
-### Compiler ###
-################
-
-export CC=/usr/local/bin/gcc-4.6    # Use Homebrew gcc
-export CXX=/usr/local/bin/c++-4.6   # Use Homebrew c++
-
 ###############
 ### Aliases ###
 ###############

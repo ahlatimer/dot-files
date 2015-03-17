@@ -95,8 +95,6 @@ let g:neocomplcache_min_syntax_length = 3
 
 " NERDTree
 let g:NERDTreeHijackNetrw = 0
-let g:NERDTreeMapOpenSplit = '<C-x>'
-let g:NERDTreeMapOpenVSplit = '<C-v>'
 let g:NERDTreeIgnore = ['node_modules$', 'tags$']
 let g:NERDTreeQuitOnOpen = 0
 let g:NERDTreeWinSize = 40
@@ -115,11 +113,13 @@ let g:bling_time = 100
 "" Plugins
 ""
 
+set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'gmarik/Vundle.vim'
 
 source ~/.vimrc.bundles
 
@@ -128,8 +128,9 @@ if filereadable(expand("~/.vimrc.bundles.local"))
   source ~/.vimrc.bundles.local
 endif
 
-filetype on
-filetype plugin indent on
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
 
 ""
 "" Color Scheme
@@ -178,12 +179,6 @@ augroup END
 ""
 "" Key bindings / mappings
 ""
-
-" Get off my lawn
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
 
 " Quicker window movement
 nnoremap <C-j> <C-w>j

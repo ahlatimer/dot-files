@@ -64,28 +64,21 @@ set splitbelow " Open new horizontal splits on the bottom
 set splitright " Open new vertical splits to the right
 
 ""
-"" Powerline
-""
-
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
-""
 "" Misc.
 ""
 
 let g:html_indent_tags = 'li\|p' " Treat <li> and <p> tags like the block tags they are
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby " add jbuilder syntax highlighting
+highlight link xmlEndTag xmlTag
 
 ""
 "" Plugin variables
 ""
 
 " Ctrl-P
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-  let g:ctrlp_use_caching = 0
-endif
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+let g:ctrlp_use_caching = 0
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 " Neocomplcache
 let g:acp_enableAtStartup = 0
@@ -104,10 +97,14 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 " Syntastic
 let g:syntastic_check_on_open = 1
+let g:syntastic_javascript_checkers = []
 
 " Bling
 let g:bling_count = 2
 let g:bling_time = 100
+
+" vim-jsx
+let g:jsx_ext_required = 0
 
 ""
 "" Plugins
@@ -165,6 +162,8 @@ augroup vimrcEx
   " Set syntax highlighting for specific file types
   autocmd BufNewFile,BufRead *.md set filetype=markdown
   autocmd BufNewFile,BufRead *.scss set filetype=scss
+  autocmd BufNewFile,BufRead *.jsx set syntax=javascript.jsx
+  autocmd BufRead,BufNewFile *.rabl setf ruby
 
   " Enable spellchecking for Markdown
   autocmd BufRead,BufNewFile *.md setlocal spell

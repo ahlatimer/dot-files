@@ -22,15 +22,11 @@ export PATH=$PATH:/opt/local/sbin
 export PATH=$PATH:/usr/local/include/bin
 export PATH=$PATH:$HOME/bin
 
-# Satisfaction tools
-export PATH=$PATH:$HOME/workspace/tools/bin
-export SATISFACTION_TOOLS=$HOME/workspace/tools
-
 # Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-# rvm
-export PATH=$PATH:$HOME/.rvm/bin
+# RVM
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 ##############
 ### Editor ###
@@ -86,17 +82,24 @@ alias gst='git status'
 alias gsu='git submodule update --init'
 alias remove_merged='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
-function gs() {
+function proj() {
   cd ~/workspace;
   if [[ $# -eq 1 ]]; then
     cd $1
   fi
 }
 
-function oss() {
+function dgrep() {
   if [[ $# -eq 1 ]]; then
-    cd `find ~/devs/oss -name $1 -d 2`
+    grep $1 {app,lib}/**/*.rb
   else
-    cd ~/devs/oss
+    grep $1 {app,lib}/**/*.$2
   fi
 }
+
+###########
+## Misc. ##
+###########
+
+# private env variables
+source ~/.env

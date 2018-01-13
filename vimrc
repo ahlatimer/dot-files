@@ -88,7 +88,7 @@ let g:neocomplcache_min_syntax_length = 3
 
 " NERDTree
 let g:NERDTreeHijackNetrw = 0
-let g:NERDTreeIgnore = ['node_modules$', 'tags$']
+let g:NERDTreeIgnore = ['node_modules$', 'tags$', 'pyc$', '__pycache__$']
 let g:NERDTreeQuitOnOpen = 0
 let g:NERDTreeWinSize = 40
 let g:loaded_netrw = 1
@@ -173,6 +173,9 @@ augroup vimrcEx
 
   " Automatically wrap at 80 characters for Markdown
   autocmd BufRead,BufNewFile *.md setlocal textwidth=80
+
+  " Autoformat elixir
+  autocmd BufWrite *.ex,*.exs :Autoformat
 augroup END
 
 ""
